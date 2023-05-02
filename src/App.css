@@ -3,7 +3,12 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  
+    --primary: #010f34;
+    --secondary: #04e1fb;
+    --info: #d1d5db;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +37,7 @@
 }
 .App {
   max-width: 800px;
-  background-color: #B9DBFE;
+  background-color: var(--primary);
   border-radius: 10px;
   padding: 25px;
 }

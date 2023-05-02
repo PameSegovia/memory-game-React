@@ -1,19 +1,23 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { getImages } from "../helpers/getImages"
 
 
 let size = 3;
+let clicks = 0;
+
 const Cards = () => {
 
 	const [images, setImages] = useState(getImages(size));
 	const [selected, setSelected] = useState ([]);
 	const [opened, setOpened] = useState ([]);
+	const score = useRef(0);
 
 	console.log('selected', selected);
 	console.log('opened', opened);
 
 
 	const handleClick = (item) =>{
+		clicks = clicks +1;
 		if (selected.length < 2) {
 		setSelected(selected => selected.concat(item))
 	}
@@ -30,6 +34,7 @@ const Cards = () => {
 
 	useEffect(() => {
 		if(opened.length === images.length){ 
+			 calculateScore();
 			 size = size + 2;
 			 clearArrays();
 			 setImages(getImages(size));
@@ -41,12 +46,30 @@ const Cards = () => {
 		setOpened([]);
 	}
 
+	const calculateScore = () => {
+		const passLevel = size * 10;
+		let total = score.current;
+		const cards = size * 2;
+		if (clicks === cards) {
+			total = total + (cards*2) + passLevel;
+		}	else if(
+			clicks > cards && clicks < cards+5){
+				total = total + cards + passLevel
+			} else if ( clicks > cards + 5 && clicks < cards + 10){
+				total = total + cards/2 + passLevel;
+			} else{
+				total = total + Math.round(cards/3)+ passLevel;
+			}
+			clicks = 0;
+			score.current = total;
+	}
+
 
 
 	let include = false;
 	return (
 		<div className="cards">
-			<h2>Score : 100</h2>
+			<h2>Score : {score.current}</h2>
 			<ul>
 			{
 				images.map((item, index) => (
