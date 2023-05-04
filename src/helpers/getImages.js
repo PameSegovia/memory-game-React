@@ -1,17 +1,17 @@
 export const getImages = (size) => {
 
 	const images = [
-		"../images/docker.svg",
-		"../images/bun.svg",
-		"../images/deno.svg",
-		"../images/github.svg",
-		"../images/javascript.svg",
-		"../images/question.svg",
-		"../images/redis.svg",
-		"../images/supabase.svg",
-		"../images/svelte.svg",
-		"../images/vite.svg",
-		"../images/vscode.svg"
+		"../images/confuso.jpeg",
+		"../images/dolar.png",
+		"../images/emocionado.png",
+		"../images/emoji.png",
+		"../images/enojado.png",
+		"../images/estrella.png",
+		"../images/guino.png",
+		"../images/llorando.png",
+		"../images/pensando.png",
+		"../images/question.png",
+		"../images/sonrisa.png"
 	]
 	const newImages = images.slice(0, size);
 
