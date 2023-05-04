@@ -84,7 +84,7 @@ const Cards = ({ start, score }) => {
                             { include = selected.includes(item) || opened.includes(item) }
 
                             <div className={`front ${include?'flip-front':''}`}>
-                                <img src="../public/images/question.png" alt="icon" />
+                                <img src="../images/question.png" alt="icon" />
                             </div>
                             <div className={`back ${include?'flip-back':''}`}>
                                 {/* <img src={include?item.split('|')[1]:'/question.png'} alt="icon" /> */}
