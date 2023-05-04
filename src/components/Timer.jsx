@@ -9,7 +9,7 @@ const Timer = ({ start, setStart, setSave, score }) => {
     const timerRef = useRef();
 
     const handleEnd = ({ start }) => {
-        console.log('timer end');
+        alert("Haz Finalizado");
         setStart(false)
         setSave(true)
     }
